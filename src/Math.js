@@ -8,14 +8,14 @@ export default class Math extends Character {
   }
 
   set attack(value) {
-    if (this.stoned) {
-      this._attack = value - Math.log2(this.cellsRange) * 5;
-    } else {
-      this._attack = value * (1 - this.cellsRange / 10);
-    }
+    this._attack = value;
   }
 
   get attack() {
+    this._attack = this._attack * (1 - this.cellsRange / 10);
+    if (this._stoned) {
+      this._attack = this._attack - Math.log2(this.cellsRange) * 5;
+    }
     return this._attack;
   }
 

@@ -1,4 +1,4 @@
-import ErrorRepository from '../main';
+import Math from '../Math';
 
 test('should return an error', () => {
   const errorRepository = new ErrorRepository();
