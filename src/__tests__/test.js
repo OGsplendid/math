@@ -1,11 +1,15 @@
-import Math from '../Math';
+import Magician from '../characters/Magician';
 
-test('should return an error', () => {
-  const errorRepository = new ErrorRepository();
-  expect(errorRepository.translate('112')).toBe('Invalid symbol');
+test('should return correct hero\'s attack', () => {
+  const hero = new Magician('Bob');
+  hero.cellsRange = 3;
+  expect(hero.attack).toBe(7);
 });
 
-test('should return an Unknown Error', () => {
-  const errorRepository = new ErrorRepository();
-  expect(errorRepository.translate('55')).toBe('Unknown error');
+test('should return correct hero\'s attack when stoned', () => {
+  const hero = new Magician('Bob');
+  hero.attack = 40;
+  hero.cellsRange = 4;
+  hero.stoned = true;
+  expect(hero.attack).toBeCloseTo(14);
 });

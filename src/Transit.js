@@ -1,6 +1,6 @@
 import Character from './Character';
 
-export default class Math extends Character {
+export default class Transit extends Character {
   constructor(name, type, attack, defence) {
     super(name, type, attack, defence);
     this.cellsRange = 0;
@@ -12,9 +12,9 @@ export default class Math extends Character {
   }
 
   get attack() {
-    this._attack = this._attack * (1 - this.cellsRange / 10);
+    this._attack *= (1 - this.cellsRange / 10);
     if (this._stoned) {
-      this._attack = this._attack - Math.log2(this.cellsRange) * 5;
+      this._attack -= Math.log2(this.cellsRange) * 5;
     }
     return this._attack;
   }
